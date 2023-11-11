@@ -2,7 +2,7 @@
   "dependencies": {
     "async": "*",
     "cors": "*",
-    "express": "*",
+    "express": "^4.18.2",
     "mongoose": "*"
   }
 }

@@ -6,16 +6,17 @@ app.listen(port, () => {
   console.log(`app listening on ${port}`);
 });
 
+// first one to exexute
 app.use(express.json());
 
+// second one to exexute
+// it ends here as there is no next
 app.use((req, res, next) => {
   console.log(req.body);
   next();
 });
 
-app.get('/', (req, res) => {
-  return res.send({ping: 'pong'});
-});
+
 
 app.use(function (req, res, next) {
   console.log('hello');
@@ -25,7 +26,12 @@ app.use(function (req, res, next) {
 app.use(function(err, req, res, next) {
   const status = err.status || 500;
   const message = err.message;
-  return res.status(status).json({
-    error: {message, status}
-  });
+  next();
+  // return res.status(status).json({
+  //   error: {message, status}
+  // });
+});
+
+app.get('/', (req, res) => {
+  return res.send({ping: 'pong'});
 });

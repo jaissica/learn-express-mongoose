@@ -21,8 +21,9 @@ process.on('SIGINT', () => {
   console.log('process terminated');
 })
 
+
 async function insert() {
-    let brkfstSchema = BreakFastSchema({eggs: 7, drink: 'Tea'})
-    await brkfstSchema.save();
-    console.log('Created Entry : ' + {eggs: 7, drink: 'Tea'});
+  let brkfstSchema = BreakFastSchema({eggs: 7, drink: 'Tea'})
+  await brkfstSchema.save();
+  console.log('Created Entry : ' + {eggs: 7, drink: 'Tea'});
 }
